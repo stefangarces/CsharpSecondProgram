@@ -1,4 +1,6 @@
 ﻿using System;
+using Uppgift2.Calc;
+
 
 namespace Uppgift2
 {
@@ -14,10 +16,12 @@ namespace Uppgift2
 
         static void Main(string[] args)
         {
-            
             Console.WriteLine("----------");
             Console.WriteLine("QUESTION 1");
             Console.WriteLine("----------");
+
+            // Jag ville testa för första gången att byta färg på texten.
+            // Lyckades sedan göra det, och gjorde det till alla frågor.
             
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("At a party, everyone shook hands with everybody.");
@@ -27,11 +31,10 @@ namespace Uppgift2
             Console.WriteLine("30 People  [ 1 ]");
             Console.WriteLine("12 People  [ 2 ]");
             Console.WriteLine("14 People  [ 3 ]");
-            
 
         Quest1:
 
-            int A = Convert.ToInt32(Console.ReadLine());
+             int A = Convert.ToInt32(Console.ReadLine());
             if (A == 2)
             {
                 Console.WriteLine("Wow, well done!");
@@ -79,7 +82,11 @@ namespace Uppgift2
                 {
                     Console.WriteLine("Oh no, wrong answer! GAME OVER...");
                     System.Environment.Exit(1);
-                }
+
+                // Ville hitta ett enkelt sätt att stänga ner programmet om
+                // spelaren svarade fel, använde då "System.Environment.Exit(1);"
+
+            }
                 else
                 {
                     Console.WriteLine("invalid alternative! Try again.");
@@ -90,30 +97,23 @@ namespace Uppgift2
 
                 Console.Clear();
 
-                tryAgain3:
-
-                Random rnd = new Random();
-                int Num1 = rnd.Next(1000, 3000);
-                int Num2 = rnd.Next(10000, 30000);
+        tryAgain3:
 
             Console.WriteLine("----------");
             Console.WriteLine("QUESTION 3");
             Console.WriteLine("----------");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(+ Num1 + " + " + Num2 + " = ?");
+            Console.WriteLine("2749 + 22854 = ?");
             Console.ResetColor();
             int answer3 = Convert.ToInt32(Console.ReadLine());
-            
 
-            int result = (Num1 + Num2);
-
-            if (result == answer3)
+            if (25603 == answer3)
             {
                 Console.WriteLine("Great!");
                 goto Quest4;
 
             }
-            else if (answer3 != result)
+            else if (answer3 != 25603)
             {
                 Console.WriteLine("Oh no, wrong answer! GAME OVER...");
                 System.Environment.Exit(1);
@@ -195,6 +195,12 @@ namespace Uppgift2
 
             Quest6:
 
+            /* Tycker det ger en snyggare look om man tar bort
+             * allting från Terminalen när man har gått vidare
+             * från en fråga, så jag använder mig av
+             * Console.Clear();
+             */
+
             Console.Clear();
 
             Console.WriteLine("----------");
@@ -222,6 +228,10 @@ namespace Uppgift2
 
             try
             {
+                /* Här använde jag mig av "ToUpper" när spelaren ska ge ett svar
+                * för att underlätta så att det blir rätt när jag ska jämföra
+                * spelarens svar med det som är rätt svar.
+                */
 
                 String playerAnswerString = Console.ReadLine().ToUpper();
 
@@ -302,9 +312,7 @@ namespace Uppgift2
 
             try
             {
-
                 String playerAnswerString = Console.ReadLine().ToUpper();
-
 
                 if (playerAnswerString == "FALSE")
                 {
@@ -315,9 +323,6 @@ namespace Uppgift2
                     Console.WriteLine("Wrong answer! GAME OVER...");
                     System.Environment.Exit(1);
                 }
-
-
-
             }
             catch
             {
@@ -325,9 +330,9 @@ namespace Uppgift2
                 goto TryAgainQuiz3;
             }
 
+            LastQuiz:
             Console.Clear();
 
-            LastQuiz:
             {
                 Console.WriteLine("--------------");
                 Console.WriteLine("THE LAST QUEST");
@@ -394,6 +399,10 @@ namespace Uppgift2
                         Console.WriteLine("Only numbers please. Lets start over!");
                         goto startover;
                     }
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Y O U  W O N ! ! !");
+                    Console.ResetColor();
                 }
 
             }
